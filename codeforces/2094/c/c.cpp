@@ -1,10 +1,12 @@
 /* 
  * Author: PURPLE103
- * Time: $%Y%$-$%M%$-$%D%$ $%h%$:$%m%$:$%s%$
+ * Time: 2025-04-14 00:29:22
  */
 #include <bits/stdc++.h>
 using namespace std;
 
+//const int p=998244353;
+//int po(int a,int b) {if(b==0) return 1; if(b==1) return a; if(b%2==0) {int u=po(a,b/2);return (u*1LL*u)%p;} else {int u=po(a,b-1);return (a*1LL*u)%p;}}
 using ll = long long;
 using ull = unsigned long long;
 using ld = long double;
@@ -31,12 +33,42 @@ using vvc = std::vector<vc>;
 #define lob(a,x) lower_bound(all(a),x)
 #define upb(a,x) upper_bound(all(a),x)
 
-//const ll p=998244353;
-//ll po(ll a,ll b) {if(b==0) return 1; if(b==1) return a; if(b%2==0) {int u=po(a,b/2);return (u*1LL*u)%p;} else {int u=po(a,b-1);return (a*1LL*u)%p;}}
-//copy_n(istream_iterator<ll>(cin),N,back_inserter(input));
-
 void solve()
 {
+    ll N;
+    vector<vl> G;
+    vb vis;
+    vl ans;
+    cin >> N;
+    G.assign(N+2,vl(N+2,0));
+    vis.assign(N*2+2,false);
+    for(ll i = 1 ; i<=N ; ++i)
+    {
+        for(ll j = 1 ; j<=N ; ++j)
+        {
+            ll itmp;
+            cin >> itmp;
+            G[i][j] = itmp;
+            vis[itmp] = true;
+        }
+    }
+
+    for(ll i =1 ; i<=2*N ; ++i)
+    {
+        if(vis[i] == false)
+        {
+            ans.eb(i);
+            break;
+        }
+    }
+    for(ll i = 1 ; i<=N ; ++i)
+        ans.eb(G[1][i]);
+    for(ll i=2 ; i<=N ; ++i)
+        ans.eb(G[i][N]);
+    
+    for(auto i : ans)
+        cout << i << " ";
+    cout << "\n";
 }
 
 int main()

@@ -1,6 +1,6 @@
 /* 
  * Author: PURPLE103
- * Time: $%Y%$-$%M%$-$%D%$ $%h%$:$%m%$:$%s%$
+ * Time: 2025-04-14 00:29:31
  */
 #include <bits/stdc++.h>
 using namespace std;
@@ -31,12 +31,36 @@ using vvc = std::vector<vc>;
 #define lob(a,x) lower_bound(all(a),x)
 #define upb(a,x) upper_bound(all(a),x)
 
-//const ll p=998244353;
-//ll po(ll a,ll b) {if(b==0) return 1; if(b==1) return a; if(b%2==0) {int u=po(a,b/2);return (u*1LL*u)%p;} else {int u=po(a,b-1);return (a*1LL*u)%p;}}
-//copy_n(istream_iterator<ll>(cin),N,back_inserter(input));
+//const int p=998244353;
+//ll po(ll a,ll b) {if(b==0) return 1; if(b==1) return a; if(b%2==0) {ll u=po(a,b/2);return (u*1LL*u)%p;} else {ll u=po(a,b-1);return (a*1LL*u)%p;}}
 
 void solve()
 {
+    ll N,ans=0;
+    vl input;
+    vl cnt(30,0);
+    cin >> N;
+    input.reserve(N);
+    copy_n(istream_iterator<ll>(cin),N,back_inserter(input));
+    for(auto i:input)
+    {
+        ll inputtmp=i,cnttmp=-1;
+        while(inputtmp > 0)
+        {
+            ++cnttmp;
+            cnt[cnttmp]+=inputtmp&1;
+            inputtmp>>=1;
+        }
+    }
+    for(auto i:input)
+    {
+        ll anstmp=0;
+        for(ll j=0 ; j<30 ; ++j)
+            anstmp+=((i>>j)&1 ? (N-cnt[j]) : cnt[j])<<j;
+        if(ans < anstmp)
+            ans = anstmp;
+    }
+    cout << ans << "\n";
 }
 
 int main()
@@ -44,7 +68,6 @@ int main()
     ios::sync_with_stdio(0);
     cin.tie(0);
     cout.tie(0);
-    
     int t = 1;
     cin >> t;
     while(t--) {

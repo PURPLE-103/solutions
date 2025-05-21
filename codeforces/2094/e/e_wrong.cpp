@@ -1,6 +1,6 @@
 /* 
  * Author: PURPLE103
- * Time: $%Y%$-$%M%$-$%D%$ $%h%$:$%m%$:$%s%$
+ * Time: 2025-04-14 00:29:31
  */
 #include <bits/stdc++.h>
 using namespace std;
@@ -31,12 +31,36 @@ using vvc = std::vector<vc>;
 #define lob(a,x) lower_bound(all(a),x)
 #define upb(a,x) upper_bound(all(a),x)
 
-//const ll p=998244353;
-//ll po(ll a,ll b) {if(b==0) return 1; if(b==1) return a; if(b%2==0) {int u=po(a,b/2);return (u*1LL*u)%p;} else {int u=po(a,b-1);return (a*1LL*u)%p;}}
-//copy_n(istream_iterator<ll>(cin),N,back_inserter(input));
+//const int p=998244353;
+//ll po(ll a,ll b) {if(b==0) return 1; if(b==1) return a; if(b%2==0) {ll u=po(a,b/2);return (u*1LL*u)%p;} else {ll u=po(a,b-1);return (a*1LL*u)%p;}}
 
 void solve()
 {
+    ll N;
+    vector<bitset<32>> input;
+    ll bitmax;
+    vl a;
+    ll max_val=-1;
+    cin >> N;
+    a.assign(N+2,0);
+    for(ll i=0 ; i<N ; ++i)
+    {
+        ll itmp;
+        ll cnt=0;
+        cin >> itmp;
+        bitset<32> bittmp(itmp);
+        input.eb(itmp);
+    }
+    for(ll i=0 ; i<N ; ++i)
+    {
+        ll cnt=0;
+        for(ll j=0 ; j<N ; ++j)
+            cnt+=(input[i]^input[j]).to_ullong();
+        if(cnt > max_val)
+            max_val=cnt;
+    }
+    cout << max_val << "\n";
+
 }
 
 int main()
@@ -44,7 +68,6 @@ int main()
     ios::sync_with_stdio(0);
     cin.tie(0);
     cout.tie(0);
-    
     int t = 1;
     cin >> t;
     while(t--) {

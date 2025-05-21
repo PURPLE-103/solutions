@@ -1,6 +1,6 @@
 /* 
  * Author: PURPLE103
- * Time: $%Y%$-$%M%$-$%D%$ $%h%$:$%m%$:$%s%$
+ * Time: 2025-04-21 23:30:25
  */
 #include <bits/stdc++.h>
 using namespace std;
@@ -37,6 +37,30 @@ using vvc = std::vector<vc>;
 
 void solve()
 {
+    string stmp;
+    vl input;
+    ll N,cnt;
+    cin >> N;
+    cin >> stmp;
+    cnt = 1;
+    for(ll i=1 ; i<stmp.length() ; ++i)
+    {
+        if(stmp[i]!=stmp[i-1])
+        {
+            input.eb(cnt);
+            cnt=1;
+        }
+        else
+        {
+            ++cnt;
+        }
+    }
+    if(cnt!=0) input.eb(cnt);
+
+    if(input.size() == 1){cout << (stmp[0]=='0' ? input[0] : input[0]+1) << "\n"; return;}
+    else if(input.size() == 2){cout << accumulate(all(input),0ll)+1 << "\n"; return;}
+    else if(input.size() == 3 || stmp[0]=='1'){cout << accumulate(all(input),0ll)+input.size()-2 << "\n"; return;}
+    else if(stmp[0]=='0'){cout << accumulate(all(input),0ll)+input.size()-3 << "\n"; return;}
 }
 
 int main()

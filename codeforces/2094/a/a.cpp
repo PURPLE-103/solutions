@@ -1,10 +1,12 @@
 /* 
  * Author: PURPLE103
- * Time: $%Y%$-$%M%$-$%D%$ $%h%$:$%m%$:$%s%$
+ * Time: 2025-04-14 00:29:11
  */
 #include <bits/stdc++.h>
 using namespace std;
 
+//const int p=998244353;
+//int po(int a,int b) {if(b==0) return 1; if(b==1) return a; if(b%2==0) {int u=po(a,b/2);return (u*1LL*u)%p;} else {int u=po(a,b-1);return (a*1LL*u)%p;}}
 using ll = long long;
 using ull = unsigned long long;
 using ld = long double;
@@ -31,12 +33,27 @@ using vvc = std::vector<vc>;
 #define lob(a,x) lower_bound(all(a),x)
 #define upb(a,x) upper_bound(all(a),x)
 
-//const ll p=998244353;
-//ll po(ll a,ll b) {if(b==0) return 1; if(b==1) return a; if(b%2==0) {int u=po(a,b/2);return (u*1LL*u)%p;} else {int u=po(a,b-1);return (a*1LL*u)%p;}}
-//copy_n(istream_iterator<ll>(cin),N,back_inserter(input));
+vector<string> splitString(const string &s, const string &delimiters) {
+    vector<string> tokens;
+    size_t start = s.find_first_not_of(delimiters);
+    while (start != string::npos) {
+        size_t end = s.find_first_of(delimiters, start);
+        tokens.push_back(s.substr(start, end - start));
+        start = s.find_first_not_of(delimiters, end);
+    }
+    return tokens;
+}
 
 void solve()
 {
+    string stmp;
+    string ans;
+    vs input;
+    getline(cin,stmp);
+    input = splitString(stmp," ");
+    for(auto i : input)
+        ans+=i[0];
+    cout << ans;
 }
 
 int main()
@@ -47,8 +64,10 @@ int main()
     
     int t = 1;
     cin >> t;
+    cin.ignore();
     while(t--) {
         solve();
+        cout << "\n";
     }
     cout.flush();
     return 0;

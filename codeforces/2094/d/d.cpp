@@ -1,0 +1,116 @@
+/*
+ * Author: PURPLE103
+ * Time: 2025-04-14 00:29:26
+ */
+#include <bits/stdc++.h>
+using namespace std;
+
+// const int p=998244353;
+// int po(int a,int b) {if(b==0) return 1; if(b==1) return a; if(b%2==0) {int u=po(a,b/2);return (u*1LL*u)%p;} else {int u=po(a,b-1);return (a*1LL*u)%p;}}
+using ll = long long;
+using ull = unsigned long long;
+using ld = long double;
+using vi = std::vector<int>;
+using vvi = std::vector<vi>;
+using vl = std::vector<ll>;
+using vii = std::vector<pair<int, int>>;
+using vvl = std::vector<vl>;
+using vll = std::vector<pair<ll, ll>>;
+using vd = std::vector<double>;
+using vvd = std::vector<vd>;
+using vs = std::vector<std::string>;
+using vvs = std::vector<vs>;
+using vb = std::vector<bool>;
+using vvb = std::vector<vb>;
+using vc = std::vector<char>;
+using vvc = std::vector<vc>;
+#define all(v) v.begin(), v.end()
+#define F first
+#define S second
+#define pb push_back
+#define mp make_pair
+#define eb emplace_back
+#define lob(a, x) lower_bound(all(a), x)
+#define upb(a, x) upper_bound(all(a), x)
+
+void solve()
+{
+    string stmp;
+    char prev_stmp;
+    char startofhit;
+    vl hit, heard;
+    ll cnt = 0;
+
+    getline(cin, stmp);
+    prev_stmp = stmp[0];
+    startofhit = stmp[0];
+    for (ll i = 0; i < stmp.length(); ++i)
+    {
+        if (stmp[i] == prev_stmp)
+            ++cnt;
+        else
+        {
+            hit.eb(cnt);
+            cnt = 1;
+            prev_stmp = stmp[i];
+        }
+    }
+    if (cnt != 0)
+        hit.eb(cnt);
+
+    stmp = "";
+    cnt = 0;
+    getline(cin, stmp);
+    if(startofhit != stmp[0])
+    {
+        cout << "NO\n";
+        return;
+    }
+    prev_stmp = stmp[0];
+    for (ll i = 0; i < stmp.length(); ++i)
+    {
+        if (stmp[i] == prev_stmp)
+            ++cnt;
+        else
+        {
+            heard.eb(cnt);
+            cnt = 1;
+            prev_stmp = stmp[i];
+        }
+    }
+    if (cnt != 0)
+        heard.eb(cnt);
+
+    if (heard.size() != hit.size())
+    {
+        cout << "NO\n";
+        return;
+    }
+
+    for (ll i = 0; i < hit.size(); ++i)
+    {
+        if (!(hit[i] <= heard[i] && heard[i] <= hit[i] * 2))
+        {
+            cout << "NO\n";
+            return;
+        }
+    }
+    cout << "YES\n";
+}
+
+int main()
+{
+    ios::sync_with_stdio(0);
+    cin.tie(0);
+    cout.tie(0);
+
+    int t = 1;
+    cin >> t;
+    cin.ignore();
+    while (t--)
+    {
+        solve();
+    }
+    cout.flush();
+    return 0;
+}

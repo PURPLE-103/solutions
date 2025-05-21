@@ -1,10 +1,12 @@
 /* 
  * Author: PURPLE103
- * Time: $%Y%$-$%M%$-$%D%$ $%h%$:$%m%$:$%s%$
+ * Time: 2025-04-08 23:34:11
  */
 #include <bits/stdc++.h>
 using namespace std;
 
+//const int p=998244353;
+//int po(int a,int b) {if(b==0) return 1; if(b==1) return a; if(b%2==0) {int u=po(a,b/2);return (u*1LL*u)%p;} else {int u=po(a,b-1);return (a*1LL*u)%p;}}
 using ll = long long;
 using ull = unsigned long long;
 using ld = long double;
@@ -31,12 +33,11 @@ using vvc = std::vector<vc>;
 #define lob(a,x) lower_bound(all(a),x)
 #define upb(a,x) upper_bound(all(a),x)
 
-//const ll p=998244353;
-//ll po(ll a,ll b) {if(b==0) return 1; if(b==1) return a; if(b%2==0) {int u=po(a,b/2);return (u*1LL*u)%p;} else {int u=po(a,b-1);return (a*1LL*u)%p;}}
-//copy_n(istream_iterator<ll>(cin),N,back_inserter(input));
-
 void solve()
 {
+    ll N;
+    cin >> N;
+    cout << (N&1 ? "Yes\n" : "No\n");
 }
 
 int main()

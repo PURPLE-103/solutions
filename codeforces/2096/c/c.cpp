@@ -1,6 +1,6 @@
 /* 
  * Author: PURPLE103
- * Time: $%Y%$-$%M%$-$%D%$ $%h%$:$%m%$:$%s%$
+ * Time: 2025-04-19 23:30:53
  */
 #include <bits/stdc++.h>
 using namespace std;
@@ -33,10 +33,19 @@ using vvc = std::vector<vc>;
 
 //const ll p=998244353;
 //ll po(ll a,ll b) {if(b==0) return 1; if(b==1) return a; if(b%2==0) {int u=po(a,b/2);return (u*1LL*u)%p;} else {int u=po(a,b-1);return (a*1LL*u)%p;}}
-//copy_n(istream_iterator<ll>(cin),N,back_inserter(input));
 
 void solve()
 {
+    ll N;
+    vll input;
+    unordered_map<pair<ll,ll>,bool> a;
+    cin >> N;
+    for(ll i=0 ; i<N ; ++i)
+    {
+        pair<ll,ll> itmp;
+        cin >> itmp.F >> itmp.S;
+        input.eb(itmp);
+    }
 }
 
 int main()

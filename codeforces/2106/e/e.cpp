@@ -1,6 +1,6 @@
 /* 
  * Author: PURPLE103
- * Time: $%Y%$-$%M%$-$%D%$ $%h%$:$%m%$:$%s%$
+ * Time: 2025-04-25 00:42:09
  */
 #include <bits/stdc++.h>
 using namespace std;
@@ -37,6 +37,25 @@ using vvc = std::vector<vc>;
 
 void solve()
 {
+    ll N,Q;
+    vll input;
+    vl inputrank;
+    cin >> N,Q;
+    for(ll i=0 ; i<N; ++i)
+    {
+        pair<ll,ll> plltmp;
+        cin >> plltmp.F;
+        plltmp.S = i;
+        input.eb(plltmp);
+    }
+    inputrank.assign(N,0);
+    sort(all(input));
+    for(ll i=0 ; i<N ; ++i)
+        inputrank[input[i].S]=i;
+    while(Q--)
+    {
+        
+    }
 }
 
 int main()

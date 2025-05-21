@@ -1,6 +1,6 @@
 /* 
  * Author: PURPLE103
- * Time: $%Y%$-$%M%$-$%D%$ $%h%$:$%m%$:$%s%$
+ * Time: 2025-04-19 23:30:44
  */
 #include <bits/stdc++.h>
 using namespace std;
@@ -33,10 +33,35 @@ using vvc = std::vector<vc>;
 
 //const ll p=998244353;
 //ll po(ll a,ll b) {if(b==0) return 1; if(b==1) return a; if(b%2==0) {int u=po(a,b/2);return (u*1LL*u)%p;} else {int u=po(a,b-1);return (a*1LL*u)%p;}}
-//copy_n(istream_iterator<ll>(cin),N,back_inserter(input));
 
 void solve()
 {
+    ll N;
+    string stmp;
+    vl input;
+    vl ans;
+    cin >> N;
+    cin.ignore();
+    getline(cin,stmp);
+    for(ll i=0 ; i<N ; ++i)
+        input.eb(i+1);
+    for(ll i=stmp.size()-1 ; i>=0 ; --i)
+    {
+        if(stmp[i] == '>')
+        {
+            ans.eb(input.back());
+            input.erase(input.end()-1);
+        }
+        else if(stmp[i] == '<')
+        {
+            ans.eb(input.front());
+            input.erase(input.begin());
+        }
+    }
+    ans.eb(input.front());
+    for(ll i=ans.size()-1 ; i>=0 ; --i)
+        cout << ans[i] << " ";
+    cout << "\n";
 }
 
 int main()

@@ -1,6 +1,6 @@
 /* 
  * Author: PURPLE103
- * Time: $%Y%$-$%M%$-$%D%$ $%h%$:$%m%$:$%s%$
+ * Time: 2025-04-24 23:42:48
  */
 #include <bits/stdc++.h>
 using namespace std;
@@ -37,6 +37,21 @@ using vvc = std::vector<vc>;
 
 void solve()
 {
+    ll N,X;
+    cin >> N >> X;
+    if (X == N)
+    {
+        for(ll i=0 ; i<N ; ++i)
+            cout << i << " ";
+        cout << "\n";
+        return;
+    }
+    else
+    {
+        for(ll i=0 ; i<N ; ++i)
+            if(i!=X)cout << i << " ";
+        cout << X << "\n";
+    }
 }
 
 int main()

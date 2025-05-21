@@ -1,6 +1,6 @@
 /* 
  * Author: PURPLE103
- * Time: $%Y%$-$%M%$-$%D%$ $%h%$:$%m%$:$%s%$
+ * Time: 2025-04-24 23:42:44
  */
 #include <bits/stdc++.h>
 using namespace std;
@@ -37,6 +37,17 @@ using vvc = std::vector<vc>;
 
 void solve()
 {
+    ll N,cnt1=0,cnt0=0;
+    string stmp;
+    cin >> N;
+    cin.ignore();
+    getline(cin,stmp);
+    for(ll i=0 ; i<stmp.length() ; ++i)
+    {
+        if(stmp[i] == '0') ++cnt0;
+        else if(stmp[i] == '1') ++cnt1;
+    }
+    cout << ((cnt1+1)*(cnt0))+((cnt1-1)*(cnt1)) << "\n";
 }
 
 int main()

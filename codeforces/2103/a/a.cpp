@@ -1,6 +1,6 @@
 /* 
  * Author: PURPLE103
- * Time: $%Y%$-$%M%$-$%D%$ $%h%$:$%m%$:$%s%$
+ * Time: 2025-04-21 23:30:21
  */
 #include <bits/stdc++.h>
 using namespace std;
@@ -37,6 +37,16 @@ using vvc = std::vector<vc>;
 
 void solve()
 {
+    ll N;
+    unordered_set<ll> a;
+    cin >> N;
+    for(ll i=0 ; i<N ; ++i)
+    {
+        ll itmp;
+        cin >> itmp;
+        a.insert(itmp);
+    }
+    cout << a.size() << "\n";
 }
 
 int main()

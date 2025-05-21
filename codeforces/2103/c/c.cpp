@@ -1,6 +1,6 @@
 /* 
  * Author: PURPLE103
- * Time: $%Y%$-$%M%$-$%D%$ $%h%$:$%m%$:$%s%$
+ * Time: 2025-04-21 23:30:30
  */
 #include <bits/stdc++.h>
 using namespace std;
@@ -46,7 +46,7 @@ int main()
     cout.tie(0);
     
     int t = 1;
-    cin >> t;
+    // cin >> t;
     while(t--) {
         solve();
     }

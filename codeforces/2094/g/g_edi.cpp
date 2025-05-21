@@ -37,6 +37,33 @@ using vvc = std::vector<vc>;
 
 void solve()
 {
+    ll sizeB=0,sum=0,rizz=0,Q,F,R,S,K;
+    bool flag=true;
+    cin >> Q;
+    cin >> S >> K;
+    F=K;
+    R=K;
+    sizeB=1;
+    sum+=K;
+    rizz+=K;
+    while(Q>0)
+    {
+        cin >> S;
+        if(S == 1)
+        {
+            rizz=rizz-(sizeB*R)+sum;
+        }
+        else if(S==2)
+            flag=!flag;
+        else if(S==3)
+        {
+            cin >> K;
+            ++sizeB;
+            sum+=K;
+            rizz+=sizeB*K;
+            flag ? R=K : F=K;
+        } 
+    }
 }
 
 int main()

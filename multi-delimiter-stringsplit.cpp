@@ -22,6 +22,5 @@ int main() {
     for (const auto &word : words) {
         cout << word << "\n";
     }
-    
     return 0;
 }
